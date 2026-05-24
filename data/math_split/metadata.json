@@ -1,0 +1,79 @@
+{
+  "seed": 42,
+  "subjects": [
+    "Algebra",
+    "Geometry",
+    "Number Theory",
+    "Counting & Probability",
+    "Prealgebra",
+    "Precalculus",
+    "Intermediate Algebra"
+  ],
+  "client_map": {
+    "client_0": [
+      "Algebra",
+      "Intermediate Algebra",
+      "Prealgebra"
+    ],
+    "client_1": [
+      "Geometry",
+      "Precalculus"
+    ],
+    "client_2": [
+      "Number Theory",
+      "Counting & Probability"
+    ]
+  },
+  "public_per_subject_requested": 50,
+  "train_ratio": 0.8,
+  "counts": {
+    "input_by_subject": {
+      "Algebra": 2931,
+      "Geometry": 1349,
+      "Number Theory": 1409,
+      "Counting & Probability": 1245,
+      "Prealgebra": 2076,
+      "Precalculus": 1292,
+      "Intermediate Algebra": 2198
+    },
+    "public_by_subject": {
+      "Algebra": 50,
+      "Geometry": 50,
+      "Number Theory": 50,
+      "Counting & Probability": 50,
+      "Prealgebra": 50,
+      "Precalculus": 50,
+      "Intermediate Algebra": 50
+    },
+    "clients": {
+      "client_0": {
+        "train": 5644,
+        "infer": 1411,
+        "total": 7055,
+        "by_subject": {
+          "Algebra": 2881,
+          "Intermediate Algebra": 2148,
+          "Prealgebra": 2026
+        }
+      },
+      "client_1": {
+        "train": 2032,
+        "infer": 509,
+        "total": 2541,
+        "by_subject": {
+          "Geometry": 1299,
+          "Precalculus": 1242
+        }
+      },
+      "client_2": {
+        "train": 2043,
+        "infer": 511,
+        "total": 2554,
+        "by_subject": {
+          "Number Theory": 1359,
+          "Counting & Probability": 1195
+        }
+      }
+    }
+  }
+}

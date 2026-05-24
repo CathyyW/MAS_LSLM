@@ -1,0 +1,26 @@
+[project]
+name = "single-mas"
+version = "0.1.0"
+description = "Hierarchical leader-agent MAS scaffold for MLPO-style training and inference"
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+hf = [
+    "accelerate>=0.30.0",
+    "datasets>=2.19.0",
+    "protobuf>=4.25.0",
+    "sentencepiece>=0.2.0",
+    "torch>=2.2.0",
+    "transformers>=4.41.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+
+[tool.setuptools]
+packages = ["single_mas", "single_mas.cli", "single_mas.training"]
+
+[tool.setuptools.package-dir]
+single_mas = "."
+single_mas.cli = "cli"
+single_mas.training = "training"
