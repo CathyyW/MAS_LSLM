@@ -53,7 +53,7 @@ Question: {question}
 
 {response_blocks}
 
-Please complete the following two blocks in order:
+Please complete the following two blocks in order and you must write your response in exactly the following two-block format and include no text outside these tags:
 
 1. <think>...</think>: A long, detailed reasoning process.
 2. <answer>...</answer>: Your final answer should be aggregated from the best elements of the agents' responses.
