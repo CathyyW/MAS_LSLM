@@ -1,3 +1,5 @@
 models/
 outputs/
 single_mas/__pycache__
+single_mas/cli/__pycache__
+single_mas/outputs
