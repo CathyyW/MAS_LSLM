@@ -19,6 +19,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--leader-temperature", type=float, default=0.8)
     parser.add_argument("--max-tokens", type=int, default=2048)
     parser.add_argument("--completions-per-prompt", type=int, default=16)
+    parser.add_argument(
+        "--print-backtracking-prompt",
+        action="store_true",
+        help="Print each synthetic backtracking prompt before generating the SFT completion.",
+    )
     return parser.parse_args()
 
 
@@ -44,6 +49,7 @@ def main() -> None:
             temperature=args.leader_temperature,
             max_tokens=args.max_tokens,
         ),
+        print_backtracking_prompt=args.print_backtracking_prompt,
     )
     write_jsonl(args.output, [example.to_dict() for example in sft_examples])
 

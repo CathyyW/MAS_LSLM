@@ -33,6 +33,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--leader-temperature", type=float, default=0.8)
     parser.add_argument("--max-tokens", type=int, default=2048)
     parser.add_argument("--completions-per-prompt", type=int, default=16)
+    parser.add_argument(
+        "--print-backtracking-prompt",
+        action="store_true",
+        help="Print the synthetic backtracking prompt before generating the SFT completion.",
+    )
     return parser.parse_args()
 
 
@@ -70,6 +75,7 @@ def main() -> None:
         replay_leader,
         completions_per_prompt=args.completions_per_prompt,
         generation=leader_generation,
+        print_backtracking_prompt=args.print_backtracking_prompt,
     )
 
     write_jsonl(

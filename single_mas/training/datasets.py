@@ -133,6 +133,7 @@ def build_sft_examples(
     completions_per_prompt: int = 16,
     generation: GenerationConfig | None = None,
     seed: int = 42,
+    print_backtracking_prompt: bool = False,
 ) -> list[SFTExample]:
     """Construct SFT examples with optional synthetic backtracking completions."""
 
@@ -176,6 +177,10 @@ def build_sft_examples(
             correct_reasoning=correct_reasoning,
             correct_answer=correct_answer,
         )
+        if print_backtracking_prompt:
+            print("\n===== BACKTRACKING PROMPT BEGIN =====")
+            print(backtracking_prompt)
+            print("===== BACKTRACKING PROMPT END =====\n")
         backtracked_completion = leader.generate(
             backtracking_prompt,
             GenerationConfig(n=1, temperature=generation_config.temperature, max_tokens=generation_config.max_tokens),
