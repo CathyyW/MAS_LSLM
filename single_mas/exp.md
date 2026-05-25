@@ -2,25 +2,25 @@
 
 如果要从原始 MATH 数据重新生成 `math_split`，可以使用：
 
-```powershell
-python .\data\scripts\split_math_non_iid.py `
-  --input-dir <_MATH_数据目录> `
-  --output-dir .\data\math_split `
-  --input-split train `
-  --public-per-subject 50 `
-  --train-ratio 0.8 `
+```bash
+python ./data/scripts/split_math_non_iid.py \
+  --input-dir <MATH_DATA_DIR> \
+  --output-dir ./data/math_split \
+  --input-split train \
+  --public-per-subject 50 \
+  --train-ratio 0.8 \
   --seed 42
 ```
 
 也可以直接从 Hugging Face 数据集读取：
 
-```powershell
-python .\data\scripts\split_math_non_iid.py `
-  --hf-dataset qwedsacf/competition_math `
-  --output-dir .\data\math_split `
-  --input-split train
-  --public-per-subject 50 `
-  --train-ratio 0.8 `
+```bash
+python ./data/scripts/split_math_non_iid.py \
+  --hf-dataset qwedsacf/competition_math \
+  --output-dir ./data/math_split \
+  --input-split train \
+  --public-per-subject 50 \
+  --train-ratio 0.8 \
   --seed 42
 ```
 
@@ -63,15 +63,15 @@ DEFAULT_REPRO_CONFIG = PaperReproductionConfig(
 
 ### 快速推理
 
-```powershell
-python -m single_mas.cli.infer  \
---question "What is 2+2?"   \
---rounds 1   \
---team-factory single_mas.experiment_configs:build_reproduction_team \
---output outputs/infer_test.jsonl
+```bash
+python -m single_mas.cli.infer \
+  --question "What is 2+2?" \
+  --rounds 1 \
+  --team-factory single_mas.experiment_configs:build_reproduction_team \
+  --output ./single_mas/outputs/infer_test.jsonl
 ```
 
-```powershell
+```bash
 python -m single_mas.cli.infer \
   --input ./data/math_split/clients/client_0/infer.jsonl \
   --output ./single_mas/outputs/infer_client0.jsonl \
@@ -86,21 +86,21 @@ python -m single_mas.cli.infer \
 
 单样本冒烟测试：
 
-```powershell
-python -m single_mas.cli.smoke_sft `
-  --input .\data\math_split\clients\client_0\train.jsonl `
-  --output .\single_mas\outputs\sft_smoke_client0.jsonl `
+```bash
+python -m single_mas.cli.smoke_sft \
+  --input ./data/math_split/clients/client_0/train.jsonl \
+  --output ./single_mas/outputs/sft_smoke_client0.jsonl \
   --team-factory single_mas.experiment_configs:build_reproduction_team
 ```
 
 
 完整生成：
 
-```powershell
-python -m single_mas.cli.prepare_sft_data `
-  --input .\data\math_split\clients\client_0\train.jsonl `
-  --output .\single_mas\outputs\sft_client0.jsonl `
-  --limit 10 `
+```bash
+python -m single_mas.cli.prepare_sft_data \
+  --input ./data/math_split/clients/client_0/train.jsonl \
+  --output ./single_mas/outputs/sft_client0.jsonl \
+  --limit 10 \
   --team-factory single_mas.experiment_configs:build_reproduction_team
 ```
 
