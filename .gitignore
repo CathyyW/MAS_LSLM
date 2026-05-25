@@ -2,4 +2,7 @@ models/
 outputs/
 single_mas/__pycache__
 single_mas/cli/__pycache__
+single_mas/training/__pycache__
 single_mas/outputs
+single_mas/training/__pycache__/datasets.cpython-310.pyc
+single_mas/cli/__pycache__/smoke_sft.cpython-310.pyc
